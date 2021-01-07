@@ -16,8 +16,8 @@ class UserAdapter():RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
         fun bind(item: User) {
             with(itemView)
             {
-                tv1.text=item.name
-                tv2.text=item.login
+                tv1.text=item.login
+                tv2.text=item.name
                 Picasso.get().load(item.avatarUrl).into(im1)
 
 

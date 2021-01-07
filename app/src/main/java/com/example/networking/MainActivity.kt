@@ -66,27 +66,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    fun searchUsers(query:String)
-    {
-
+    fun searchUsers(query:String){
         GlobalScope.launch(Dispatchers.Main) {
-            val response= withContext(Dispatchers.IO)
-            {
-                Client.api.searchUser(query)
-            }
-
-            if(response.isSuccessful)
-            {
-
+            val response = withContext(Dispatchers.IO){Client.api.searchUsers(query) }
+            if(response.isSuccessful){
                 response.body()?.let {
-                   it.items?.let { it1 -> adapter.swapData(it1) }
+                    it.items?.let { it1 -> adapter.swapData(it1) }
                 }
-
-
             }
-
         }
-
     }
 }
 
